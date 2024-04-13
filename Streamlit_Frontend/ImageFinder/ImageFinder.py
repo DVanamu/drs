@@ -6,7 +6,7 @@ Not_found_link='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKT
 def get_images_links(searchTerm):
     try:
         searchUrl = "https://www.google.com/search?q={}&site=webhp&tbm=isch".format(searchTerm)
-        d = requests.get(searchUrl).text
+        d = requests.get(searchUrl, timeout=60).text
         soup = BeautifulSoup(d, 'html.parser')
 
         img_tags = soup.find_all('img')
