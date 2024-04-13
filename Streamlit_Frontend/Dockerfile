@@ -1,6 +1,6 @@
 # Frontend/Dockerfile
 
-FROM python:3.13.0a6
+FROM python:3.13.0a6-slim
 
 RUN mkdir -p app/frontend
 
