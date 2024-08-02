@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 from Generate_Recommendations import Generator
-from random import uniform as rnd
 from ImageFinder.ImageFinder import get_images_links as find_image
 from streamlit_echarts import st_echarts
+import secrets
 
 st.set_page_config(page_title="Automatic Diet Recommendation", page_icon="💪",layout="wide")
 
@@ -67,13 +67,13 @@ class Person:
         for meal in self.meals_calories_perc:
             meal_calories=self.meals_calories_perc[meal]*total_calories
             if meal=='breakfast':        
-                recommended_nutrition = [meal_calories,rnd(10,30),rnd(0,4),rnd(0,30),rnd(0,400),rnd(40,75),rnd(4,10),rnd(0,10),rnd(30,100)]
+                recommended_nutrition = [meal_calories,secrets.SystemRandom().rnd(10,30),secrets.SystemRandom().rnd(0,4),secrets.SystemRandom().rnd(0,30),secrets.SystemRandom().rnd(0,400),secrets.SystemRandom().rnd(40,75),secrets.SystemRandom().rnd(4,10),secrets.SystemRandom().rnd(0,10),secrets.SystemRandom().rnd(30,100)]
             elif meal=='launch':
-                recommended_nutrition = [meal_calories,rnd(20,40),rnd(0,4),rnd(0,30),rnd(0,400),rnd(40,75),rnd(4,20),rnd(0,10),rnd(50,175)]
+                recommended_nutrition = [meal_calories,secrets.SystemRandom().rnd(20,40),secrets.SystemRandom().rnd(0,4),secrets.SystemRandom().rnd(0,30),secrets.SystemRandom().rnd(0,400),secrets.SystemRandom().rnd(40,75),secrets.SystemRandom().rnd(4,20),secrets.SystemRandom().rnd(0,10),secrets.SystemRandom().rnd(50,175)]
             elif meal=='dinner':
-                recommended_nutrition = [meal_calories,rnd(20,40),rnd(0,4),rnd(0,30),rnd(0,400),rnd(40,75),rnd(4,20),rnd(0,10),rnd(50,175)] 
+                recommended_nutrition = [meal_calories,secrets.SystemRandom().rnd(20,40),secrets.SystemRandom().rnd(0,4),secrets.SystemRandom().rnd(0,30),secrets.SystemRandom().rnd(0,400),secrets.SystemRandom().rnd(40,75),secrets.SystemRandom().rnd(4,20),secrets.SystemRandom().rnd(0,10),secrets.SystemRandom().rnd(50,175)] 
             else:
-                recommended_nutrition = [meal_calories,rnd(10,30),rnd(0,4),rnd(0,30),rnd(0,400),rnd(40,75),rnd(4,10),rnd(0,10),rnd(30,100)]
+                recommended_nutrition = [meal_calories,secrets.SystemRandom().rnd(10,30),secrets.SystemRandom().rnd(0,4),secrets.SystemRandom().rnd(0,30),secrets.SystemRandom().rnd(0,400),secrets.SystemRandom().rnd(40,75),secrets.SystemRandom().rnd(4,10),secrets.SystemRandom().rnd(0,10),secrets.SystemRandom().rnd(30,100)]
             generator=Generator(recommended_nutrition)
             recommended_recipes=generator.generate().json()['output']
             recommendations.append(recommended_recipes)
