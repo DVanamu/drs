@@ -1,6 +1,6 @@
 # backend/Dockerfile
 
-FROM python:3.13.0a6-slim
+FROM python:3.14.0rc2-slim
 
 RUN mkdir -p app/backend
 
